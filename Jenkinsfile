@@ -2,16 +2,16 @@ node {
     printMessage("Démarrage du Pipeline")
 
     stage("Récupération du Code Source") {
-      git "https://github.com/luyenge/Beginning-Jenkins/tree/master/Lesson5/ActivityA"
+      git "https://github.com/luyenge/ActivityA"
     }
 
     dir('Lesson5/ActivityA') {
         stage("Prérequis d'installation") {
-            sh 'make install'
+            sh '. /home/maabik/.bash_profile  make install'
         }
 
         stage("Exécution de Tests") {
-            sh 'make jenkins_test'
+            sh '. /home/maabik/.bash_profile make jenkins_test'
         }
 
         stage("Deploiement") {
